@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="归档, YellMonkey">
+    <meta name="keywords" content="how cpp decides type of literal, YellMonkey">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>归档 | YellMonkey</title>
+    <title>how cpp decides type of literal | YellMonkey</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -413,10 +413,23 @@
                                 <span class="chip bg-color">c++</span>
                             </a>
                         
+                            <a href="/tags/CS/">
+                                <span class="chip bg-color">CS</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Notes/" class="post-category">
+                                Notes
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -454,13 +467,19 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="C-如何确定常量的类型"><a href="#C-如何确定常量的类型" class="headerlink" title="C++如何确定常量的类型"></a>C++如何确定常量的类型</h3><p>&emsp;&emsp;定义声明和常量后缀告诉了c++编译器某一量的类型，但编译器如何确定无后缀常量的类型呢？</p>
+                <p>&emsp;&emsp;定义声明和常量后缀告诉了c++编译器某一量的类型，但编译器如何确定无后缀常量的类型<span id="more"></span>呢？</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int num &#x3D; 256;
 cout &lt;&lt; 256LL;
 cout &lt;&lt; 765; &#x2F;&#x2F;type of 765?<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ol>
-<li>第一个基本规则是：c++编译器只考虑int及以上的类型(unsinged int, long, long long etc.)。</li>
+<li>第一个基本规则是：c++编译器只考虑int及以上的类型(unsinged int, long, long long etc.)，且使用尽可能占用空间少的类型。</li>
+<li>对于十进制常量，c++编译器只考虑int及以上的无符号整型(long, long long)。</li>
+<li>对于十六进制和八进制常量，c++编译器考虑int及以上的无符号和带符号整型。<br>于是会出现——在将40000表示为long的计算机系统中，0x9C40(40000)被表示为unsigned int。</li>
 </ol>
+<hr>
+<ul>
+<li>literal(字面量), 指代码中出现的所有‘常量’，比如<code>30</code>,<code>A</code>等。</li>
+</ul>
 
                 
             </div>
@@ -529,6 +548,10 @@ cout &lt;&lt; 765; &#x2F;&#x2F;type of 765?<span aria-hidden="true" class="line-
                                     <span class="chip bg-color">c++</span>
                                 </a>
                             
+                                <a href="/tags/CS/">
+                                    <span class="chip bg-color">CS</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -589,7 +612,7 @@ cout &lt;&lt; 765; &#x2F;&#x2F;type of 765?<span aria-hidden="true" class="line-
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            &emsp;&emsp;定义声明和常量后缀告诉了c++编译器某一量的类型，但编译器如何确定无后缀常量的类型
                         
                     </div>
                     <div class="publish-info">
@@ -598,8 +621,12 @@ cout &lt;&lt; 765; &#x2F;&#x2F;type of 765?<span aria-hidden="true" class="line-
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Cyan
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Notes/" class="post-category">
+                                    Notes
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -610,6 +637,10 @@ cout &lt;&lt; 765; &#x2F;&#x2F;type of 765?<span aria-hidden="true" class="line-
                     
                     <a href="/tags/c/">
                         <span class="chip bg-color">c++</span>
+                    </a>
+                    
+                    <a href="/tags/CS/">
+                        <span class="chip bg-color">CS</span>
                     </a>
                     
                 </div>
@@ -635,7 +666,7 @@ cout &lt;&lt; 765; &#x2F;&#x2F;type of 765?<span aria-hidden="true" class="line-
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            &emsp;&emsp;byte（字节），现在通常认为其长度是 8 bits。然而，byte 所形容的并不是特定长度，而是
+                            &emsp;&emsp;byte（字节），现在通常认为其长度是8 bits。然而，byte所形容的并不是特定长度，而是
                         
                     </div>
                     <div class="publish-info">
@@ -644,8 +675,12 @@ cout &lt;&lt; 765; &#x2F;&#x2F;type of 765?<span aria-hidden="true" class="line-
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Cyan
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Notes/" class="post-category">
+                                    Notes
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -653,12 +688,12 @@ cout &lt;&lt; 765; &#x2F;&#x2F;type of 765?<span aria-hidden="true" class="line-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/computer-science/">
-                        <span class="chip bg-color">computer science</span>
-                    </a>
-                    
                     <a href="/tags/English/">
                         <span class="chip bg-color">English</span>
+                    </a>
+                    
+                    <a href="/tags/CS/">
+                        <span class="chip bg-color">CS</span>
                     </a>
                     
                 </div>
